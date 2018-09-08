@@ -56,3 +56,4 @@ class Time extends React.Component {
 }
 
 export default connect(mapStateToProps)(Time);
+//export default Time;
