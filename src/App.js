@@ -12,6 +12,9 @@ const store = createStore(reducers,
       window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 class App extends Component {
+  state = {
+    time: new Date().toLocaleTimeString()
+  }
   componentDidMount() {
     setInterval(() => {
       store.dispatch({
@@ -20,6 +23,9 @@ class App extends Component {
             time: new Date().toLocaleTimeString()
           }
         })
+      // this.setState({
+      //   time: new Date().toLocaleTimeString()
+      // })
       }, 1000);
   }
 
@@ -32,7 +38,7 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <Provider store={store}>
-          <Time/>
+          <Time time={this.state.time}/>
         </Provider>
       </div>
     );
